@@ -43,17 +43,6 @@ where not exists (
     where s2.j_id = s1.j_id
     and s2.s_id != "S1"
 );
-create view first as
-select distinct j_id
-from spj s1
-where not exists (
-    select 1
-    from spj s2
-    where s2.j_id = s1.j_id
-    and s2.s_id != "S1"
-);
-
-select * from first;
 
 -- 2
 -- Получить общее количество деталей с указанным номером, поставляемых некоторым поставщиком (параметры - номер детали (P1), номер поставщика (S1))
@@ -61,16 +50,6 @@ select sum(quantity) as idk
 from spj
 where s_id = "S1"
 and p_id = "P1";
-
-create view second as
-select sum(quantity) as idk
-from spj
-where s_id = "S1"
-and p_id = "P1";
-
-select * from second;
-
-update second set idk = 3000;
 
 -- 3
 -- Выдать номера изделий, использующих только детали, поставляемые некоторым поставщиком (параметр - номер поставщика (S1)).
@@ -82,18 +61,6 @@ where not exists (
     where s2.j_id = s1.j_id
     and s2.s_id != "S1"
 );
-
-create view third as
-select distinct j_id
-from spj s1
-where not exists (
-    select 1
-    from spj s2
-    where s2.j_id = s1.j_id
-    and s2.s_id != "S1"
-);
-
-select * from third;
 
 -- 4
 -- Получить общее число изделий, для которых поставляет детали поставщик с указанным номером (параметр - номер поставщика (S1)).
@@ -134,24 +101,8 @@ join s s2 on s1.s_id = s2.id
 join p d1 on s1.p_id = d1.id
 where s2.city = "Лондон";
 
-create view seven as
-select d1.id, d1.name, d1.color, d1.city, d1.weight
-from spj s1
-join s s2 on s1.s_id = s2.id
-join p d1 on s1.p_id = d1.id
-where s2.city = "Лондон";
-
-
-select * from second;
-select * from eight;
-
 -- 8
 -- Получить список всех поставок, в которых количество деталей находится в некотором диапазоне (параметры - границы диапазона (от 300 до 750)).
-select *
-from spj s1
-where s1.quantity between 300 and 750;
-
-create view eight as 
 select *
 from spj s1
 where s1.quantity between 300 and 750;
