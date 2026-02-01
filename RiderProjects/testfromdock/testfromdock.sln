@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testfromdock", "testfromdock.csproj", "{2CEAAB1D-8F16-4C32-A3FA-80AE9496A12C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CEAAB1D-8F16-4C32-A3FA-80AE9496A12C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CEAAB1D-8F16-4C32-A3FA-80AE9496A12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CEAAB1D-8F16-4C32-A3FA-80AE9496A12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CEAAB1D-8F16-4C32-A3FA-80AE9496A12C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

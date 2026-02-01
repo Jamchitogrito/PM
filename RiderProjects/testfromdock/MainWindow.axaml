@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:testfromdock.Models"
+        xmlns:testfromdock="clr-namespace:testfromdock"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="600"
+        x:Class="testfromdock.MainWindow"
+        Title="testfromdock"
+        Width="900" Height="600">
+    <Grid RowDefinitions="*, Auto" Margin="20">
+        <DataGrid x:Name="display_DataGrid"
+                  AutoGenerateColumns="True"
+                  Grid.Row="0"
+                  IsReadOnly="True"
+                  GridLinesVisibility="All" >
+            
+        </DataGrid>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Из SQL-файла" Click="SelectFromSqlFile"></Button>
+            <Button Content="Из LinQ-запроса" Click="SelectFromLinQFile_Click"></Button>
+            <Button Content="Сброс" Click="Reset_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
