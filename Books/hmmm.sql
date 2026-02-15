@@ -647,9 +647,9 @@ LEFT JOIN(
 SET p.Cost = p.Cost * 0.5
 WHERE recent.Code_book IS NULL;
 
--- Создайте триггер, запускаемый при занесении новой строки в таблицу Авторы. Триггер должен увеличивать счетчик числа добавленных строк.
-
-insert Authors(Code_author, name_author, Birthday) values (998, "Анатолий", "1920-01-23");
+-- Создайте триггер, запускаемый при занесении новой строки в таблицу Авторы. Триггер должен увеличивать счетчик числа добавленных строк
+set @authors_count = 0;
+insert Authors(Code_author, name_author, Birthday) values (1000, "Женя", "1920-01-23");
 
 select @authors_count;
 
@@ -657,13 +657,31 @@ select @authors_count;
 -- которая подсчитывает количество книг по каждому автору и заносит в поле Count_books эту информацию. Создайте триггер, запускаемый 
 -- после внесения новой информации о книге.
 
-alter table Authors
-add column Count_books int;
+select a.Code_author, a.name_author, count(b.Code_book)
+from Authors a 
+join Books b on a.Code_author = b.Code_author
+group by a.Code_author;
 
-alter table Authors
-drop column C
-        
-	
+select * from Authors;
+select * from Books;
+select * from Publishing_house;
+
+select * from Authors where Code_author = 1;
+
+insert into Books (Code_book, Title_book, Code_author, Pages, Code_publish) values(129, "Чебурашки", 1, 12, 221);
+
+-- Создайте триггер, запускаемый при внесении информации о новых поставках. Выполните проверку о количестве 
+-- добавляемой книги в таблице Книги. Если количество экземпляров книг в таблице меньше 10, то необходимо 
+-- увеличить стоимость книг на 20 %.
+
+select * from Purchases where Code_purchase = 130;
+
+insert into Purchases(Code_purchase, Code_book, Date_order, Code_delivery, Type_purchase, Cost, Amount) 
+values ('130', '1', '2017-01-11 00:00:00', '1', b'1', '200', '13');
+
+-- Запретить вставлять новые строки в таблицу Поставщики, выводя при этом сообщение «Вставка строк запрещена».
+select * from Publishing_house;
+insert into Publishing_house(Code_publish, Publish, City) values("123123", "asd", "UFA");
     
 
 
