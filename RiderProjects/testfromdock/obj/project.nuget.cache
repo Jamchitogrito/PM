@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kU7MHdKHfSI=",
+  "dgSpecHash": "V6uh+PNxzLM=",
   "success": true,
   "projectFilePath": "/home/dinislam/Study/PM/RiderProjects/testfromdock/testfromdock.csproj",
   "expectedPackageFiles": [
@@ -90,8 +90,9 @@
     "/home/dinislam/.nuget/packages/system.text.json/9.0.0/system.text.json.9.0.0.nupkg.sha512",
     "/home/dinislam/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
     "/home/dinislam/.nuget/packages/tmds.dbus.protocol/0.21.2/tmds.dbus.protocol.0.21.2.nupkg.sha512",
-    "/home/dinislam/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512",
-    "/home/dinislam/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512"
+    "/home/dinislam/.nuget/packages/microsoft.netcore.app.ref/8.0.24/microsoft.netcore.app.ref.8.0.24.nupkg.sha512",
+    "/home/dinislam/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.24/microsoft.aspnetcore.app.ref.8.0.24.nupkg.sha512",
+    "/home/dinislam/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.24/microsoft.netcore.app.host.linux-x64.8.0.24.nupkg.sha512"
   ],
   "logs": []
 }

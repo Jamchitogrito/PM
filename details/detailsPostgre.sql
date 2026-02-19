@@ -77,38 +77,34 @@ update p
 set weight = weight + 10
 where city = 'Лондон';
 
-create schema detail_schema;
+create view task18 as
+select p1.id, p1.weight, p1.city
+from spj
+join p p1 on spj.p_id = p1.id
+order by p1.weight desc ;
 
-create table details_schema.s(
-    id varchar(6) primary key not null,
-    surname varchar(20) not null,
-    raiting int not null,
-    city varchar(20) not null
-);
+select * from task18;
 
-create table details_schema.p (
-    id varchar(6) primary key not null,
-    name varchar(20) not null,
-    color varchar(20) not null,
-    city varchar(20) not null,
-    weight int not null
-);
+drop view task18;
 
-create table  details_schema.j (
-    id varchar(6) primary key not null,
-    name varchar(20) not null,
-    city varchar(20) not null
-);
+create view task18and2 as
+    select p1.id, p1.city, j1.city
+    from spj spj1
+    join p p1 on spj1.p_id = p1.id
+    join j j1 on spj1.j_id = j1.id
+    where p1.city = j1.city
+    order by p1.id;
 
-create table details_schema.spj (
-    s_id varchar(6) not null,
-    p_id varchar(6) not null,
-    j_id varchar(6) not null,
-    quantity int not null,
-    primary key (s_id, p_id, j_id),
-    foreign key (s_id) references details_schema.s(id),
-    foreign key (p_id) references details_schema.p(id),
-    foreign key (j_id) references details_schema.j(id)
-);
-\dn
-SET search_path TO details_schema, public;
+create view task19 as
+    select distinct s1.id, s1.surname, s1.city, p1.id as "p1 id", p1.city as "p1 city"
+    from s s1
+    join spj spj1 on s1.id = spj1.s_id
+    left join p p1 on spj1.p_id = p1.id
+    where s1.city = p1.city;
+
+select * from task19;
+drop view task19;
+
+update task19
+set surname = 'asd'
+where "p1 city" = 'Лондон';
